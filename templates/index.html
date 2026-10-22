@@ -22,57 +22,73 @@
         <!-- Text Area -->
     	<div class="ml-container">
 	    	<form class="prediction-form" action="/predict" method="POST" onsubmit="return validateForm()">
+                    <div class="form-intro">
+                        <h3>details</h3>
+                    </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Crime Rate" placeholder="Crime rate of the locality" min="0" max="100" step="any" required>
-                    <small>Allowed: 0 to 100</small>
+                        <label class="field-label" for="crime-rate">Crime rate (CRIM)</label>
+                        <input class="form-input" id="crime-rate" type="number" name="Crime Rate" placeholder="Enter crime rate" min="0" max="100" step="any" required>
+                        <small>Per-capita crime rate for the town. Range: 0 to 100.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Zone" placeholder="Zone" min="0" max="100" step="any" required>
-                    <small>Allowed: 0 to 100</small>
+                        <label class="field-label" for="zone">Residential land zoning (ZN)</label>
+                        <input class="form-input" id="zone" type="number" name="Zone" placeholder="Enter zone value" min="0"max="100" step="any" required>
+                        <small>Land zoned for large residential lots, on a 0 to 100 scale.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Industries" placeholder="Non-retail business acres per town" min="0" max="100" step="any" required>
-                    <small>Allowed: 0 to 100</small>
+                        <label class="field-label" for="industries">Non-retail business land (INDUS)</label>
+                        <input class="form-input" id="industries" type="number" name="Industries" placeholder="Enter industries value" min="0" max="100" step="any" required>
+                        <small>Proportion of non-retail business acres in the town. Range: 0 to 100.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Charles River" placeholder="1 if Charles river bound tracts; 0 otherwise" min="0" max="1" step="1" required>
-                    <small>Allowed: 0 or 1</small>
+                        <label class="field-label" for="charles-river">Borders the Charles River (CHAS)</label>
+                        <input class="form-input" id="charles-river" type="number" name="Charles River" placeholder="Enter value (0 or 1)" min="0" max="1" step="1" required>
+                        <small>Enter 1 if yes, or 0 if no.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Nitric Oxide Conc." placeholder="Nitric Oxide Concentration" min="0" max="1" step="any" required>
-                    <small>Allowed: 0 to 1</small>
+                        <label class="field-label" for="nox">Nitric oxide concentration (NOX)</label>
+                        <input class="form-input" id="nox" type="number" name="Nitric Oxide Conc." placeholder="Enter nitric oxide concentration" min="0" max="1" step="any" required>
+                        <small>Air-pollution measure, in parts per 10 million. Range: 0 to 1.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Rooms" placeholder="Rooms per dwelling" min="0" max="20" step="any" required>
-                    <small>Allowed: 0 to 20</small>
+                        <label class="field-label" for="rooms">Average rooms per dwelling (RM)</label>
+                        <input class="form-input" id="rooms" type="number" name="Rooms" placeholder="Enter rooms" min="0" max="20" step="any" required>
+                        <small>Average number of rooms per home. Range: 0 to 20.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Age" placeholder="Proportion of owner occupied units prior to 1940" min="0" max="100" step="any" required>
-                    <small>Allowed: 0 to 100</small>
+                        <label class="field-label" for="age">Older homes (AGE)</label>
+                        <input class="form-input" id="age" type="number" name="Age" placeholder="Enter age" min="0" max="100" step="any" required>
+                        <small>Percent of owner-occupied homes built before 1940. Range: 0 to 100.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Distance" placeholder="Weighted distance to five employment centres" min="0" max="20" step="any" required>
-                    <small>Allowed: 0 to 20</small>
+                        <label class="field-label" for="distance">Distance to employment centers (DIS)</label>
+                        <input class="form-input" id="distance" type="number" name="Distance" placeholder="Enter distance" min="0" max="20" step="any" required>
+                        <small>Weighted distance to five Boston job centers. Range: 0 to 20.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Highways" placeholder="Index of accessibility of radial highways" min="1" max="25" step="1" required>
-                    <small>Allowed: 1 to 25</small>
+                        <label class="field-label" for="highways">Highway access index (RAD)</label>
+                        <input class="form-input" id="highways" type="number" name="Highways" placeholder="Enter highways value" min="1" max="25" step="1" required>
+                        <small>Accessibility index for radial highways. Whole number: 1 to 25.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Tax" placeholder="Full value of property-tax rate per $10,000" min="0" max="1000" step="any" required>
-                    <small>Allowed: 0 to 1000</small>
+                        <label class="field-label" for="tax">Property tax rate (TAX)</label>
+                        <input class="form-input" id="tax" type="number" name="Tax" placeholder="Enter tax value" min="0" max="1000" step="any" required>
+                        <small>Property tax per $10,000 of value. Range: 0 to 1,000.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Teacher Ratio" placeholder="Pupil-teacher ratio by town" min="0" max="40" step="any" required>
-                    <small>Allowed: 0 to 40</small>
+                        <label class="field-label" for="teacher-ratio">Pupil-to-teacher ratio (PTRATIO)</label>
+                        <input class="form-input" id="teacher-ratio" type="number" name="Teacher Ratio" placeholder="Enter teacher ratio" min="0" max="40" step="any" required>
+                        <small>Number of pupils per teacher in the town. Range: 0 to 40.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="African-American" placeholder="Proportion of African-American by town" min="0" max="500" step="any" required>
-                    <small>Allowed: 0 to 500</small>
+                        <label class="field-label" for="demographic-feature">Historical demographic feature (B)</label>
+                        <input class="form-input" id="demographic-feature" type="number" name="African-American" placeholder="Enter demographic value" min="0" max="500" step="any" required>
+                        <small>Transformed value from this historical dataset, not a percentage.</small>
                 </div>
                 <div class="field-group">
-                    <input class="form-input" type="number" name="Lower Status" placeholder="% of Lower status of population" min="0" max="100" step="any" required>
-                    <small>Allowed: 0 to 100</small>
+                        <label class="field-label" for="lower-status">Lower-status population measure (LSTAT)</label>
+                        <input class="form-input" id="lower-status" type="number" name="Lower Status" placeholder="Enter lower status value" min="0" max="100" step="any" required>
+                        <small>Historical dataset measure, recorded as a percentage. Range: 0 to 100.</small>
                 </div>
 
 	        	<input type="submit" class="my-cta-button" value="Predict">
